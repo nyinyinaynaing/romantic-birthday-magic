@@ -1,9 +1,11 @@
+
 import { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import Message from '../components/Message';
 import MusicPlayer from '../components/MusicPlayer';
 import FallingElements from '../components/FallingElements';
+import WishCards from '../components/WishCards';
 
 // Replace this with your girlfriend's name
 const GIRLFRIEND_NAME = "Sarah";
@@ -116,6 +118,8 @@ const Index = () => {
         title="Our Beautiful Journey"
         subtitle="Cherishing every moment we've shared together"
       />
+      
+      <WishCards />
       
       <Message 
         title={`My Dearest ${GIRLFRIEND_NAME}`}
