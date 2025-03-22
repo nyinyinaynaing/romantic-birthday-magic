@@ -2,6 +2,13 @@
 import { useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Heart, Star, Gift, Sparkles, PartyPopper, Smile, Cake } from 'lucide-react';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from './ui/carousel';
 
 interface Wish {
   id: number;
@@ -74,61 +81,83 @@ const WishCards = () => {
           <p className="text-romantic-300 max-w-2xl mx-auto">Each card holds a special wish from me to you on this magical day</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wishes.map((wish, index) => (
-            <div 
-              key={wish.id}
-              className="perspective-500"
-              onMouseEnter={() => setHoveredCard(wish.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              style={{ 
-                animationDelay: `${index * 0.1}s`,
-                transform: `translateY(${Math.sin(index * 0.5) * 10}px)`
-              }}
-            >
-              <Card 
-                className={`
-                  h-64 glass border border-white/10 shadow-xl overflow-hidden
-                  ${hoveredCard === wish.id ? 'animate-float' : 'animate-float-reverse'}
-                  transition-all duration-500 ease-in-out
-                  bg-gradient-to-br ${wish.color}
-                `}
-              >
-                <CardContent className="p-6 h-full flex flex-col items-center justify-center text-center relative">
-                  <div className={`
-                    absolute inset-0 opacity-10 bg-white rounded-lg
-                    ${hoveredCard === wish.id ? 'animate-pulse-subtle' : ''}
-                  `}></div>
-                  
-                  <div className={`
-                    text-white mb-4 transform transition-transform duration-500
-                    ${hoveredCard === wish.id ? 'scale-110' : 'scale-100'}
-                  `}>
-                    {wish.icon}
-                  </div>
-                  
-                  <h3 className={`
-                    text-2xl font-playfair text-white mb-2
-                    transition-all duration-500
-                    ${hoveredCard === wish.id ? 'text-glow scale-105' : ''}
-                  `}>
-                    {wish.title}
-                  </h3>
-                  
-                  <p className="text-white/90 text-sm font-light leading-relaxed">
-                    {wish.message}
-                  </p>
-                  
-                  <div className={`
-                    absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/20
-                    transition-transform duration-500 ease-in-out
-                    ${hoveredCard === wish.id ? 'scale-150' : 'scale-100'}
-                  `}></div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
+        <Carousel
+          className="w-full max-w-4xl mx-auto"
+          opts={{
+            align: "center",
+            loop: true
+          }}
+        >
+          <CarouselContent>
+            {wishes.map((wish, index) => (
+              <CarouselItem key={wish.id} className="md:basis-1/2 lg:basis-1/3 pl-6">
+                <div 
+                  className="perspective-500"
+                  onMouseEnter={() => setHoveredCard(wish.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    transform: `translateY(${Math.sin(index * 0.5) * 10}px)`
+                  }}
+                >
+                  <Card 
+                    className={`
+                      h-64 glass border border-white/10 shadow-xl overflow-hidden
+                      ${hoveredCard === wish.id ? 'animate-float' : 'animate-float-reverse'}
+                      transition-all duration-500 ease-in-out
+                      bg-gradient-to-br ${wish.color}
+                    `}
+                  >
+                    <CardContent className="p-6 h-full flex flex-col items-center justify-center text-center relative">
+                      <div className={`
+                        absolute inset-0 opacity-10 bg-white rounded-lg
+                        ${hoveredCard === wish.id ? 'animate-pulse-subtle' : ''}
+                      `}></div>
+                      
+                      <div className={`
+                        text-white mb-4 transform transition-transform duration-500
+                        ${hoveredCard === wish.id ? 'scale-110' : 'scale-100'}
+                      `}>
+                        {wish.icon}
+                      </div>
+                      
+                      <h3 className={`
+                        text-2xl font-playfair text-white mb-2
+                        transition-all duration-500
+                        ${hoveredCard === wish.id ? 'text-glow scale-105' : ''}
+                      `}>
+                        {wish.title}
+                      </h3>
+                      
+                      <p className="text-white/90 text-sm font-light leading-relaxed">
+                        {wish.message}
+                      </p>
+                      
+                      <div className={`
+                        absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/20
+                        transition-transform duration-500 ease-in-out
+                        ${hoveredCard === wish.id ? 'scale-150' : 'scale-100'}
+                      `}></div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          
+          <div className="flex items-center justify-center mt-8 gap-4">
+            <CarouselPrevious 
+              variant="outline"
+              size="default"
+              className="relative -left-0 h-10 w-10 bg-background/50 backdrop-blur border border-white/10 text-white hover:bg-romantic-500/50"
+            />
+            <CarouselNext 
+              variant="outline"
+              size="default" 
+              className="relative -right-0 h-10 w-10 bg-background/50 backdrop-blur border border-white/10 text-white hover:bg-romantic-500/50"
+            />
+          </div>
+        </Carousel>
       </div>
     </div>
   );
