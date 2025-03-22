@@ -62,7 +62,7 @@ const PHOTOS = [
 ];
 
 // Replace with your romantic song URL
-const SONG_URL = "https://mp3.chillhop.com/serve.php/?mp3=9272";
+const SONG_URL = "https://aiusms.com/happy-birthday-254480.mp3";
 
 const Index = () => {
   const [pageLoaded, setPageLoaded] = useState(false);
