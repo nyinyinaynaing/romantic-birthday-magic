@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
@@ -17,11 +16,11 @@ const BIRTHDAY_MESSAGE = [
   "May this birthday bring you all the happiness you deserve. I look forward to celebrating many more birthdays with you, each one more special than the last."
 ];
 
-// Replace with your photos
+// Replace with your photos - you will need to upload these to src/assets/images/
 const PHOTOS = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=1964&auto=format&fit=crop",
+    src: "/src/assets/images/first-date.jpg", // Replace with your actual file after uploading
     alt: "Our first date",
     date: "January 15, 2022",
     location: "Central Park",
@@ -29,7 +28,7 @@ const PHOTOS = [
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1887&auto=format&fit=crop",
+    src: "/src/assets/images/summer-vacation.jpg", // Replace with your actual file after uploading
     alt: "Summer vacation",
     date: "July 8, 2022",
     location: "Beach",
@@ -37,7 +36,7 @@ const PHOTOS = [
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1523439915311-09e659f5db16?q=80&w=1970&auto=format&fit=crop",
+    src: "/src/assets/images/winter-wonderland.jpg", // Replace with your actual file after uploading
     alt: "Winter wonderland",
     date: "December 24, 2022",
     location: "Mountain cabin",
@@ -45,7 +44,7 @@ const PHOTOS = [
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1770&auto=format&fit=crop",
+    src: "/src/assets/images/anniversary.jpg", // Replace with your actual file after uploading
     alt: "Anniversary dinner",
     date: "January 15, 2023",
     location: "Fancy Restaurant",
@@ -53,7 +52,7 @@ const PHOTOS = [
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1770&auto=format&fit=crop",
+    src: "/src/assets/images/road-trip.jpg", // Replace with your actual file after uploading
     alt: "Road trip",
     date: "June 5, 2023",
     location: "Countryside",
@@ -61,8 +60,8 @@ const PHOTOS = [
   },
 ];
 
-// Replace with your romantic song URL
-const SONG_URL = "https://aiusms.com/happy-birthday-254480.mp3";
+// Replace with path to your song in assets/audio folder
+const SONG_URL = "/src/assets/audio/birthday-song.mp3"; // Replace with your actual file after uploading
 
 const Index = () => {
   const [pageLoaded, setPageLoaded] = useState(false);

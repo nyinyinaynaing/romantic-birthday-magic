@@ -7,7 +7,7 @@ interface MusicPlayerProps {
 }
 
 const MusicPlayer: React.FC<MusicPlayerProps> = ({ 
-  songUrl = "https://mp3.chillhop.com/serve.php/?mp3=9272" // Default song - replace with your romantic song
+  songUrl = "/src/assets/audio/default-song.mp3" // Default song path in your assets folder
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);

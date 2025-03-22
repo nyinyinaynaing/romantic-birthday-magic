@@ -11,11 +11,11 @@ interface Photo {
   description?: string;
 }
 
-// Replace these with your actual photos
+// These are the default photos - you will replace them with your own
 const defaultPhotos: Photo[] = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=1964&auto=format&fit=crop",
+    src: "/src/assets/images/first-date.jpg", // Will be replaced with your actual images
     alt: "Our first date",
     date: "January 15, 2022",
     location: "Central Park",
@@ -23,7 +23,7 @@ const defaultPhotos: Photo[] = [
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1887&auto=format&fit=crop",
+    src: "/src/assets/images/summer-vacation.jpg", // Will be replaced with your actual images
     alt: "Summer vacation",
     date: "July 8, 2022",
     location: "Beach",
@@ -31,7 +31,7 @@ const defaultPhotos: Photo[] = [
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1523439915311-09e659f5db16?q=80&w=1970&auto=format&fit=crop",
+    src: "/src/assets/images/winter-wonderland.jpg", // Will be replaced with your actual images
     alt: "Winter wonderland",
     date: "December 24, 2022",
     location: "Mountain cabin",
@@ -39,7 +39,7 @@ const defaultPhotos: Photo[] = [
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1770&auto=format&fit=crop",
+    src: "/src/assets/images/anniversary.jpg", // Will be replaced with your actual images
     alt: "Anniversary dinner",
     date: "January 15, 2023",
     location: "Fancy Restaurant",
@@ -47,7 +47,7 @@ const defaultPhotos: Photo[] = [
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1770&auto=format&fit=crop",
+    src: "/src/assets/images/road-trip.jpg", // Will be replaced with your actual images
     alt: "Road trip",
     date: "June 5, 2023",
     location: "Countryside",
