@@ -66,6 +66,7 @@ const SONG_URL = "https://mp3.chillhop.com/serve.php/?mp3=9272";
 
 const Index = () => {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [showStars, setShowStars] = useState(false);
 
   useEffect(() => {
     // Preload images for smoother experience
@@ -77,24 +78,36 @@ const Index = () => {
     // Set page as loaded
     const timer = setTimeout(() => {
       setPageLoaded(true);
-    }, 100);
+    }, 500);
 
-    return () => clearTimeout(timer);
+    // Show stars animation after page loads
+    const starsTimer = setTimeout(() => {
+      setShowStars(true);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(starsTimer);
+    };
   }, []);
 
   if (!pageLoaded) {
     return (
-      <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-romantic-200 border-t-romantic-600 rounded-full animate-spin mb-4 mx-auto"></div>
-          <p className="text-romantic-600 font-playfair text-xl">Loading a special surprise...</p>
+          <p className="text-romantic-600 font-playfair text-xl animate-pulse">Loading a special surprise...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full bg-white overflow-hidden">
+    <div className="w-full bg-background overflow-hidden relative">
+      {showStars && (
+        <div className="fixed inset-0 star-field pointer-events-none" style={{ opacity: 0.4 }}></div>
+      )}
+      
       <FallingElements />
       
       <Hero name={GIRLFRIEND_NAME} subtitle="Happy Birthday, My Love" />
@@ -112,6 +125,10 @@ const Index = () => {
       />
       
       <MusicPlayer songUrl={SONG_URL} />
+      
+      <div className="fixed bottom-5 right-5 opacity-70 animate-heartbeat">
+        <div className="text-romantic-500 text-xs">Made with ❤️</div>
+      </div>
     </div>
   );
 };

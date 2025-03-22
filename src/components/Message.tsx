@@ -19,6 +19,7 @@ const Message: React.FC<MessageProps> = ({
   signature = "Forever Yours"
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [floatingHearts, setFloatingHearts] = useState<{id: number, x: number, delay: number}[]>([]);
   const messageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,6 +27,15 @@ const Message: React.FC<MessageProps> = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          
+          // Create floating hearts when message becomes visible
+          const hearts = Array.from({length: 12}, (_, i) => ({
+            id: i,
+            x: Math.random() * 100, // random position
+            delay: Math.random() * 5 // random animation delay
+          }));
+          setFloatingHearts(hearts);
+          
           observer.disconnect();
         }
       },
@@ -46,18 +56,33 @@ const Message: React.FC<MessageProps> = ({
   }, []);
 
   return (
-    <div id="message" ref={messageRef} className="min-h-screen py-20 px-6 bg-gradient-radial from-romantic-50 to-white relative overflow-hidden">
+    <div id="message" ref={messageRef} className="min-h-screen py-20 px-6 bg-gradient-radial from-romantic-950 to-background relative overflow-hidden">
+      {floatingHearts.map(heart => (
+        <div 
+          key={heart.id}
+          className="absolute text-romantic-500 animate-floating opacity-20"
+          style={{
+            left: `${heart.x}%`,
+            bottom: '-5%',
+            animationDelay: `${heart.delay}s`,
+            fontSize: `${Math.random() * 20 + 10}px`
+          }}
+        >
+          ❤️
+        </div>
+      ))}
+      
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <Heart className={`w-8 h-8 text-romantic-500 mx-auto mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
-          <h2 className={`text-4xl md:text-5xl font-playfair text-romantic-950 mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>{title}</h2>
+          <Heart className={`w-8 h-8 text-romantic-500 mx-auto mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100 animate-heartbeat' : 'opacity-0'}`} fill="#d06780" />
+          <h2 className={`text-4xl md:text-5xl font-playfair text-romantic-200 mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>{title}</h2>
         </div>
         
-        <div className="glass rounded-2xl p-8 md:p-12 shadow-xl mb-12">
+        <div className="glass rounded-2xl p-8 md:p-12 shadow-xl mb-12 glow">
           {message.map((paragraph, index) => (
             <p 
               key={index} 
-              className={`text-lg md:text-xl text-romantic-800 mb-6 leading-relaxed font-lato transition-all duration-1000 delay-${index * 200} ${
+              className={`text-lg md:text-xl text-romantic-100 mb-6 leading-relaxed font-lato transition-all duration-1000 delay-${index * 200} ${
                 isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'
               }`}
               style={{ 
@@ -69,7 +94,7 @@ const Message: React.FC<MessageProps> = ({
           ))}
           
           <div 
-            className={`text-right font-playfair text-2xl text-romantic-600 mt-8 transition-all duration-1000 delay-1000 ${
+            className={`text-right font-playfair text-2xl text-romantic-400 mt-8 transition-all duration-1000 delay-1000 sparkle ${
               isVisible ? 'opacity-100' : 'opacity-0'
             }`}
             style={{ transitionDelay: '1000ms' }}
@@ -84,11 +109,11 @@ const Message: React.FC<MessageProps> = ({
           }`}
           style={{ transitionDelay: '1200ms' }}
         >
-          <Heart className="w-4 h-4 text-romantic-400 mr-2" />
-          <div className="h-[1px] w-12 bg-romantic-200 mr-2"></div>
-          <span className="text-romantic-500 font-lato text-sm uppercase tracking-widest">Happy Birthday</span>
-          <div className="h-[1px] w-12 bg-romantic-200 ml-2"></div>
-          <Heart className="w-4 h-4 text-romantic-400 ml-2" />
+          <Heart className="w-4 h-4 text-romantic-400 mr-2" fill="#d06780" />
+          <div className="h-[1px] w-12 bg-romantic-500 mr-2"></div>
+          <span className="text-romantic-400 font-lato text-sm uppercase tracking-widest">Happy Birthday</span>
+          <div className="h-[1px] w-12 bg-romantic-500 ml-2"></div>
+          <Heart className="w-4 h-4 text-romantic-400 ml-2" fill="#d06780" />
         </div>
       </div>
     </div>

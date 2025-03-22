@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -205,6 +206,37 @@ export default {
 					'100%': {
 						backgroundPosition: '200% 0'
 					}
+				},
+				'heartbeat': {
+					'0%': {
+						transform: 'scale(1)'
+					},
+					'15%': {
+						transform: 'scale(1.3)'
+					},
+					'30%': {
+						transform: 'scale(1)'
+					},
+					'45%': {
+						transform: 'scale(1.2)'
+					},
+					'60%': {
+						transform: 'scale(1)'
+					},
+					'100%': {
+						transform: 'scale(1)'
+					}
+				},
+				'floating': {
+					'0%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-15px) rotate(5deg)'
+					},
+					'100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					}
 				}
 			},
 			animation: {
@@ -219,7 +251,9 @@ export default {
 				'float-reverse': 'float-reverse 7s ease-in-out infinite',
 				'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite',
 				'fall': 'fall 10s linear forwards',
-				'shimmer': 'shimmer 4s linear infinite'
+				'shimmer': 'shimmer 4s linear infinite',
+				'heartbeat': 'heartbeat 1.5s infinite',
+				'floating': 'floating 5s ease-in-out infinite'
 			},
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
