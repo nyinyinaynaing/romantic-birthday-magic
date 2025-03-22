@@ -89,7 +89,8 @@
 
 .bg-shimmer {
   background-size: 200% 100%;
-  @apply bg-shimmer animate-shimmer;
+  background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  @apply animate-shimmer;
 }
 
 /* Smooth Scrolling */
