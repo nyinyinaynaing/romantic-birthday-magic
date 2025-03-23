@@ -53,13 +53,6 @@ const Hero: React.FC<HeroProps> = ({
           <span className="text-3xl font-playfair text-romantic-300 sparkle">{name}</span>
           <Heart className="w-8 h-8 text-romantic-500 ml-2 animate-heartbeat" fill="#d06780" />
         </div>
-        
-        <a 
-          href="#gallery" 
-          className="inline-block glass px-8 py-4 rounded-full text-romantic-200 font-medium transition-all hover:shadow-lg hover:text-romantic-100 hover:scale-105 animate-fade-in glow"
-        >
-          Our Journey Together
-        </a>
       </div>
       
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
