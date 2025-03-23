@@ -52,7 +52,7 @@ const BirthdayCake = () => {
         
         <div className={`relative max-w-2xl mx-auto transition-all duration-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           {/* Cake Container */}
-          <div className="cake-container aspect-[4/3] relative bg-gradient-to-b from-romantic-100 to-romantic-50 rounded-xl shadow-2xl overflow-hidden">
+          <div className="cake-container aspect-[4/3] relative bg-gradient-to-b from-romantic-950 to-romantic-900 rounded-xl shadow-2xl overflow-hidden">
             {/* Cake base */}
             <div className="absolute bottom-0 left-0 right-0">
               {/* Bottom cake layer */}
@@ -85,9 +85,9 @@ const BirthdayCake = () => {
                     {/* Smoke */}
                     {showSmoke && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <div className="smoke-particle"></div>
-                        <div className="smoke-particle delay-100"></div>
-                        <div className="smoke-particle delay-200"></div>
+                        <div className="smoke-particle w-3 h-3 bg-white/60"></div>
+                        <div className="smoke-particle w-4 h-4 bg-white/60 delay-100"></div>
+                        <div className="smoke-particle w-3 h-3 bg-white/60 delay-200"></div>
                       </div>
                     )}
                   </div>
