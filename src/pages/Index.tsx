@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
-import Gallery from '../components/Gallery';
+import BirthdayCake from '../components/Gallery';
 import Message from '../components/Message';
 import MusicPlayer from '../components/MusicPlayer';
 import FallingElements from '../components/FallingElements';
@@ -18,50 +18,6 @@ const BIRTHDAY_MESSAGE = [
   "May this birthday bring you all the happiness you deserve. I look forward to celebrating many more birthdays with you, each one more special than the last."
 ];
 
-// Replace with your photos - you will need to upload these to src/assets/images/
-const PHOTOS = [
-  {
-    id: 1,
-    src: "/src/assets/images/first-date.jpg", // Replace with your actual file after uploading
-    alt: "Our first date",
-    date: "January 15, 2022",
-    location: "Central Park",
-    description: "The day we first met"
-  },
-  {
-    id: 2,
-    src: "/src/assets/images/summer-vacation.jpg", // Replace with your actual file after uploading
-    alt: "Summer vacation",
-    date: "July 8, 2022",
-    location: "Beach",
-    description: "Our amazing summer together"
-  },
-  {
-    id: 3,
-    src: "/src/assets/images/winter-wonderland.jpg", // Replace with your actual file after uploading
-    alt: "Winter wonderland",
-    date: "December 24, 2022",
-    location: "Mountain cabin",
-    description: "Christmas together"
-  },
-  {
-    id: 4,
-    src: "/src/assets/images/anniversary.jpg", // Replace with your actual file after uploading
-    alt: "Anniversary dinner",
-    date: "January 15, 2023",
-    location: "Fancy Restaurant",
-    description: "Celebrating one year together"
-  },
-  {
-    id: 5,
-    src: "/src/assets/images/road-trip.jpg", // Replace with your actual file after uploading
-    alt: "Road trip",
-    date: "June 5, 2023",
-    location: "Countryside",
-    description: "Exploring new places together"
-  },
-];
-
 // Replace with path to your song in assets/audio folder
 const SONG_URL = "/src/assets/audio/birthday-song.mp3"; // Replace with your actual file after uploading
 
@@ -70,12 +26,6 @@ const Index = () => {
   const [showStars, setShowStars] = useState(false);
 
   useEffect(() => {
-    // Preload images for smoother experience
-    PHOTOS.forEach(photo => {
-      const img = new Image();
-      img.src = photo.src;
-    });
-
     // Set page as loaded
     const timer = setTimeout(() => {
       setPageLoaded(true);
@@ -113,11 +63,7 @@ const Index = () => {
       
       <Hero name={GIRLFRIEND_NAME} subtitle="Happy Birthday, My Love" />
       
-      <Gallery 
-        photos={PHOTOS}
-        title="Our Beautiful Journey"
-        subtitle="Cherishing every moment we've shared together"
-      />
+      <BirthdayCake />
       
       <WishCards />
       
