@@ -7,7 +7,7 @@ interface MusicPlayerProps {
 }
 
 const MusicPlayer: React.FC<MusicPlayerProps> = ({ 
-  songUrl = "/src/assets/audio/default-song.mp3" // Default song path in your assets folder
+  songUrl = "/src/assets/audio/happy-birthday-254480.mp3" // Default song path in your assets folder
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);

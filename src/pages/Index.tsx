@@ -8,7 +8,7 @@ import FallingElements from '../components/FallingElements';
 import WishCards from '../components/WishCards';
 
 // Replace this with your girlfriend's name
-const GIRLFRIEND_NAME = "Sarah";
+const GIRLFRIEND_NAME = "Baby";
 
 // Replace this with your custom message
 const BIRTHDAY_MESSAGE = [
@@ -19,7 +19,7 @@ const BIRTHDAY_MESSAGE = [
 ];
 
 // Replace with path to your song in assets/audio folder
-const SONG_URL = "/src/assets/audio/birthday-song.mp3"; // Replace with your actual file after uploading
+const SONG_URL = "/src/assets/audio/happy-birthday-254480.mp3"; // Replace with your actual file after uploading
 
 const Index = () => {
   const [pageLoaded, setPageLoaded] = useState(false);
