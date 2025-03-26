@@ -76,7 +76,7 @@ const Index = () => {
       <MusicPlayer songUrl={SONG_URL} />
       
       <div className="fixed bottom-5 right-5 opacity-70 animate-heartbeat">
-        <div className="text-romantic-500 text-xs">Made with ❤️</div>
+        <div className="text-romantic-500 text-xs">HAPPY BIRTHDAY BABY ❤️</div>
       </div>
     </div>
   );
