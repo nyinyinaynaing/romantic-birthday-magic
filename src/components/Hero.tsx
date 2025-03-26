@@ -54,12 +54,6 @@ const Hero: React.FC<HeroProps> = ({
           <Heart className="w-8 h-8 text-romantic-500 ml-2 animate-heartbeat" fill="#d06780" />
         </div>
       </div>
-      
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
-        <div className="w-6 h-10 border-2 border-romantic-500 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-romantic-500 rounded-full mt-1 animate-float-reverse"></div>
-        </div>
-      </div>
     </div>
   );
 };
