@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import BirthdayCake from '../components/Gallery';
@@ -18,8 +17,8 @@ const BIRTHDAY_MESSAGE = [
   "May this birthday bring you all the happiness you deserve. I look forward to celebrating many more birthdays with you, each one more special than the last."
 ];
 
-// Replace with path to your song in assets/audio folder
-const SONG_URL = "/src/assets/audio/happy-birthday-254480.mp3"; // Replace with your actual file after uploading
+// Update the song URL path for production compatibility
+const SONG_URL = "/happy-birthday-254480.mp3"; 
 
 const Index = () => {
   const [pageLoaded, setPageLoaded] = useState(false);

@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX, PartyPopper, Ribbon } from 'lucide-react';
 
@@ -7,7 +6,7 @@ interface MusicPlayerProps {
 }
 
 const MusicPlayer: React.FC<MusicPlayerProps> = ({ 
-  songUrl = "/src/assets/audio/happy-birthday-254480.mp3" // Default song path in your assets folder
+  songUrl = "/happy-birthday-254480.mp3" // Updated path for production
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -15,10 +14,20 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element
-    audioRef.current = new Audio(songUrl);
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.4;
+    // Create audio element with the correct path
+    const audioElement = new Audio(songUrl);
+    audioElement.loop = true;
+    audioElement.volume = 0.4;
+    audioRef.current = audioElement;
+    
+    // Log when audio is loaded or encounters an error
+    audioElement.addEventListener('canplaythrough', () => {
+      console.log('Audio loaded successfully');
+    });
+    
+    audioElement.addEventListener('error', (e) => {
+      console.error('Audio loading error:', e);
+    });
     
     // Cleanup on unmount
     return () => {
