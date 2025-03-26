@@ -67,7 +67,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
           <VolumeX className="w-6 h-6 text-romantic-600" />
         )}
       </button>
-      
+
       {/* Celebration elements that appear when music starts playing */}
       {showCelebration && (
         <div className="absolute bottom-16 right-0 flex flex-col items-end space-y-4">
@@ -99,7 +99,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({
       
       {!isInitialized && (
         <div className="absolute -top-20 right-0 glass px-4 py-2 rounded-lg text-sm w-40 text-center">
-          <p>Click to play romantic music</p>
+          <p>Click to play music</p>
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-3 h-3 glass"></div>
         </div>
       )}
